@@ -11,8 +11,8 @@ if __name__ == "__main__":
     Assuming that masks have the same name as images with the prefix of '_mask.png'
     '''
     # setting the paths to image, mask , and svaing folders and image and mask extentions.
-    imgExt = '.tif'
-    maskExt = '_mask.png'
+    imgExt = '.npy'
+    maskExt = '.npy'
 
     imgPath = '/path/to/training/images/'
     maskPath = '/path/to/training/masks/'
