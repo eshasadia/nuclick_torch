@@ -13,9 +13,8 @@ def patch_extract_save(imgPath, maskPath, save_path, dataset=None, subset=None, 
     imgName = imgPath.split('/')[-1][:-len(ext)]
     
     # Reading images
-    img = cv2.imread(imgPath)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    mask = cv2.imread(maskPath, -1)
+    img = np.load(imgPath)  # Load the image as a numpy array
+    mask = np.load(maskPath)
     # mask = imread(maskPath)
 
     m, n = mask.shape[:2]
