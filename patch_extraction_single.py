@@ -14,9 +14,9 @@ if __name__ == "__main__":
     imgExt = '.npy'
     maskExt = '.npy'
 
-    imgPath = '/path/to/training/images/'
-    maskPath = '/path/to/training/masks/'
-    mat_save_path = '/path/to/SAVE/nuclick_patches/'
+    imgPath = '/mnt/lab-share/Monkey/patches_256/images/'
+    maskPath = '/mnt/lab-share/Monkey/patches_256/annotations/mask'
+    mat_save_path = '/mnt/lab-share/Monkey/patches_256/nuclick/'
     os.makedirs(mat_save_path, exist_ok=True)
 
     # Finding image and paths and creating saveing paths accordingly
