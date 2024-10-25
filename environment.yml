@@ -1,0 +1,19 @@
+name: Nuclick
+channels:
+  - defaults
+  - conda-forge  # For some extra packages that might not be available in defaults
+dependencies:
+  - python=3.9  # or whichever version you prefer
+  - matplotlib
+  - numpy
+  - Pillow
+  - tqdm
+  - scikit-image
+  - scipy
+  - albumentations
+  - opencv  # opencv-python and opencv-contrib-python can be replaced by this
+  - pip  # Include pip to install packages only available via pip
+  - pip:
+    - torch
+    - torchvision
+    - wandb
