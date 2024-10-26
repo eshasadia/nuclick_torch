@@ -14,6 +14,14 @@ from config import DefaultConfig
 from utils.process import post_processing, gen_instance_map
 from utils.misc import get_coords_from_csv, get_clickmap_boundingbox, get_output_filename, get_images_points
 from utils.guiding_signals import get_patches_and_signals
+def get_coords_from_npy(points_npy):
+    # Load the numpy array from the file
+    points_array = np.load(points_npy)
+    # Assuming the coordinates are in the format (cx, cy)
+    cx = points_array[:, 0]  # X coordinates
+    cy = points_array[:, 1]  # Y coordinates
+    return cx, cy
+
 
 def predict_img(net,
                 full_img,
@@ -23,11 +31,19 @@ def predict_img(net,
                 out_threshold=0.5):
     net.eval()
 
-    #Get click coordinates from CSV file
-    cx, cy = get_coords_from_csv(points_csv)
+    # #Get click coordinates from CSV file
+    # cx, cy = get_coords_from_csv(points_csv)
+    # imgWidth = full_img.width
+    # imgHeight = full_img.height
+    # #Get click map and bounding box
+    # clickMap, boundingBoxes = get_clickmap_boundingbox(cx, cy, imgHeight, imgWidth)
+    # Main code
+    points_npy = 'points_csv'  # Replace with your .npy file path
+    cx, cy = get_coords_from_npy(points_npy)
     imgWidth = full_img.width
     imgHeight = full_img.height
-    #Get click map and bounding box
+
+    # Get click map and bounding box
     clickMap, boundingBoxes = get_clickmap_boundingbox(cx, cy, imgHeight, imgWidth)
 
     #Convert full_img to numpy array (3, imgHeight, imgWidth)
